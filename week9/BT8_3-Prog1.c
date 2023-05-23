@@ -16,13 +16,13 @@ int main()
     // mkfifo(<pathname>, <permission>)
     mkfifo(myfifo, 0666);
 
-    char arr1[256], dataBuff[256];
+    char arr1[1024], dataBuff[1024];
     // Open FIFO for write only
     fd = open(myfifo, O_WRONLY);
 
     //read dataFile
     FILE *p = fopen("DataFile.txt", "r");
-    fgets(dataBuff, 256, p);
+    fgets(dataBuff, 1024, p);
     // Write the input dataBuffing on FIFO
     // and close it
     write(fd, dataBuff, strlen(dataBuff)+1);
