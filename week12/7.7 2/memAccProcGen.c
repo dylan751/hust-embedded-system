@@ -140,6 +140,7 @@ void process(int process_num) {
     // Release semaphore
     release_semaphore(SEM_MUTEX);
 
+    // Signal finish
     msg.mtype = 2;
     msg.process_num = process_num;
     msg.process_id = getpid();
